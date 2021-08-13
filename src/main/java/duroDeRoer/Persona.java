@@ -22,11 +22,11 @@ public class Persona {
         this.edad = edad;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -47,7 +47,7 @@ public class Persona {
     }
     //Constantes
     //Sexo por defecto
-    private final static char SEXO_DEF = 'H';
+    private final static String SEXO_DEF = "H";
     
     //El peso de la persona esta por debajo del peso ideal
     public static final int INFRAPESO = -1; 
@@ -58,10 +58,9 @@ public class Persona {
     //El peso de la persona esta por encima del peso ideal    
     public static final int SOBREPESO = 1;
     
-    private String nombre;
+    private String nombre, sexo;
     private int edad, IMC;
     private String DNI;
-    private char sexo;
     private double peso, pesoActual;
     private double altura;
     
@@ -70,7 +69,7 @@ public class Persona {
         
     }
     //Constructor con 6 parámetros   
-    public Persona(String nom, int edad, char sexo, int peso, int altura){
+    public Persona(String nom, int edad, String sexo, int peso, int altura){
         nombre=nom;
         this.edad=edad;
         this.peso=peso;
@@ -82,7 +81,7 @@ public class Persona {
         
     }
     //Contructor con 3 parámetros
-    public Persona(String nom, int edad, char sexo){
+    public Persona(String nom, int edad, String sexo){
         nombre=nom;
         this.edad=edad;
         this.sexo=sexo;
@@ -96,7 +95,7 @@ public class Persona {
     }
     
     public void comprobarSexo(){
-        if (sexo!='H' || sexo!='M'){
+        if (sexo!="H" || sexo!="M"){
             sexo=SEXO_DEF;
         }
     }
@@ -107,9 +106,7 @@ public class Persona {
         String letraDni="";
         
         Id=Math.random()*100000000;
-        System.out.println(Id);
         dniFin=(int)Id;
-        System.out.println(dniFin);
         int caracter=(int)Math.floor(Math.random()*(122-97)+97);
         letraDni=letraDni + (char)caracter;
         DNI=dniFin+letraDni.toUpperCase();
@@ -126,6 +123,14 @@ public class Persona {
         } else {
             return SOBREPESO;
         }
+    }
+    public void obtenerDatos(){
+        
+        System.out.println("Ficha completa de: " + getNombre());
+        System.out.println("Nombre: " + getNombre() + "\nEdad:" + getEdad() + 
+                "\nSexo: " + getSexo() + "\nPeso: " + getPeso() + 
+                "\nAltura: " + getAltura());
+        
     }
             
         

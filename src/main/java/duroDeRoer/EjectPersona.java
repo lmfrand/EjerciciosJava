@@ -31,12 +31,12 @@ public class EjectPersona {
         
         persona1.setNombre(suNombre);
         persona1.setEdad(edadNum);
-        //persona1.setSexo(suSexo);
+        persona1.setSexo(suSexo);
         persona1.setPeso(pesoNum);
         persona1.setAltura(alturaNum);
         
         System.out.println("La primera persona, que se llama "+ suNombre +
-                ", con DNI nº:" + persona1.generarDNI() + persona1.esMayorDeEdad(edadNum) + "\n");
+                ", con DNI nº:" + persona1.generarDNI() + persona1.esMayorDeEdad(edadNum));
         if (persona1.calcularIMC(alturaNum, pesoNum)==0){
             System.out.println(suNombre + " está en su peso ideal.");
         } else if (persona1.calcularIMC(alturaNum, pesoNum)==-1){
@@ -44,6 +44,8 @@ public class EjectPersona {
         } else {
             System.out.println(suNombre + " está por encima de su peso ideal.");
         }
+        persona1.obtenerDatos();
+        
         
         //suNombre=JOptionPane.showInputDialog("Introduzca su nombre: ");
         //edadNum=Integer.parseInt(JOptionPane.showInputDialog("Introduzca su edad: "));
