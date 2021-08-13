@@ -22,19 +22,11 @@ public class Persona {
         this.edad = edad;
     }
 
-    public int getDNI() {
-        return DNI;
-    }
-
-    public void setDNI(int DNI) {
-        this.DNI = DNI;
-    }
-
-    public String getSexo() {
+    public char getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo;
     }
 
@@ -53,47 +45,91 @@ public class Persona {
     public void setAltura(double altura) {
         this.altura = altura;
     }
+    //Constantes
+    //Sexo por defecto
+    private final static char SEXO_DEF = 'H';
+    
+    //El peso de la persona esta por debajo del peso ideal
+    public static final int INFRAPESO = -1; 
+    
+    //El peso de la persona esta en su peso ideal    
+    public static final int PESO_IDEAL = 0;
+    
+    //El peso de la persona esta por encima del peso ideal    
+    public static final int SOBREPESO = 1;
     
     private String nombre;
-    private int edad;
-    private int DNI;
-    private String sexo;
-    private double peso;
+    private int edad, IMC;
+    private String DNI;
+    private char sexo;
+    private double peso, pesoActual;
     private double altura;
     
+    //Constructor por defecto
     public Persona(){
         
     }
-       
-    public Persona(String nom, int edad, int DNI, String sexo, int peso, int altura){
+    //Constructor con 6 parámetros   
+    public Persona(String nom, int edad, char sexo, int peso, int altura){
         nombre=nom;
         this.edad=edad;
-        this.DNI=DNI;
-        this.sexo=sexo;
         this.peso=peso;
         this.altura=altura;
+        generarDNI();
+        this.sexo=sexo;
+        comprobarSexo();
+        
+        
     }
-    
-    public Persona(String nom, int edad, String sexo){
+    //Contructor con 3 parámetros
+    public Persona(String nom, int edad, char sexo){
         nombre=nom;
         this.edad=edad;
         this.sexo=sexo;
     }
     
-    public boolean esMayorDeEdad(int edad){
+    public String esMayorDeEdad(int edad){
         if (edad>17){
-        return true; 
+            return " es mayor de edad."; 
         }
-        return false;
+        return " no es mayor de edad.";
     }
     
-   /* public double calcularIMC(double altura, double peso){
+    public void comprobarSexo(){
+        if (sexo!='H' || sexo!='M'){
+            sexo=SEXO_DEF;
+        }
+    }
+    
+    public String generarDNI(){
+        double Id;
+        int dniFin;
+        String letraDni="";
+        
+        Id=Math.random()*100000000;
+        System.out.println(Id);
+        dniFin=(int)Id;
+        System.out.println(dniFin);
+        int caracter=(int)Math.floor(Math.random()*(122-97)+97);
+        letraDni=letraDni + (char)caracter;
+        DNI=dniFin+letraDni.toUpperCase();
+        return DNI;
+    }
+    public double calcularIMC(double altura, double peso){
         this.peso=peso;
         this.altura=altura;
-        if (peso/altura^2==)
+        pesoActual = peso/(Math.pow(altura, 2));
+        if (pesoActual>=20 && pesoActual<=25){
+            return PESO_IDEAL;
+        } else if (pesoActual<20){
+            return INFRAPESO;
+        } else {
+            return SOBREPESO;
+        }
+    }
             
         
-    }*/
+
     
         
 }
