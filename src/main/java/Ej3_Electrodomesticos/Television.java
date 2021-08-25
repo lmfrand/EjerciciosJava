@@ -39,13 +39,13 @@ public class Television extends Electrodomestico {
     public double precioTelevisor(Electrodomestico e){
         
         if (resolucion>=40 && sintonizador==true){
-            precioFin=(e.precioFinal()*0.3)+e.precioFinal()+50;
+            precioFin=(e.precioGenerico()*0.3)+e.precioGenerico()+50;
         } else if (resolucion>40 && sintonizador==false){
-            precioFin=e.precioFinal()*30+e.precioFinal();
+            precioFin=e.precioGenerico()*30+e.precioGenerico();
         } else if (resolucion<40 && sintonizador==true){
-            precioFin=e.precioFinal()+50;
+            precioFin=e.precioGenerico()+50;
         } else {
-            precioFin=e.precioFinal();
+            precioFin=e.precioGenerico();
         }
         
         return precioFin;

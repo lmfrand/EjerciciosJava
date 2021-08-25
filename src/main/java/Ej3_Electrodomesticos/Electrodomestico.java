@@ -59,7 +59,7 @@ public class Electrodomestico {
         this.consumo_energetico = consumo_energetico;
     } 
     
-    public double precioFinal(){
+    public double precioGenerico(){
         
         double precio_final, precioEne;
         

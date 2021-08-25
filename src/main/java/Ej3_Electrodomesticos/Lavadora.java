@@ -27,9 +27,9 @@ public class Lavadora extends Electrodomestico {
     public double precioLavadora(Electrodomestico e){
         
         if (carga<30){
-            precioFin=e.precioFinal();
+            precioFin=e.precioGenerico();
         } else {
-            precioFin=e.precioFinal()+50;
+            precioFin=e.precioGenerico()+50;
         }
         return precioFin;
     }
