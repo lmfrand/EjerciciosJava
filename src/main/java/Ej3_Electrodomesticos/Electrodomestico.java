@@ -2,13 +2,14 @@ package Ej3_Electrodomesticos;
 
 public class Electrodomestico {
     
-    protected int precio_base, peso;
+    protected double precio_base;
+    protected int peso;
     protected String color;
     protected char consumo_energetico;
     
     protected final static String COLOR_DEF="Blanco";
     protected final static char CONENE_DEF='F';
-    protected final static int PRECIO_DEF=100;
+    protected final static double PRECIO_DEF=100;
     protected final static int PESO_DEF=5;
     
     //Constructor por defecto
@@ -17,13 +18,13 @@ public class Electrodomestico {
     } 
     
     //Constructor con dos parámetros
-    public Electrodomestico(int precio_base, int peso){
+    public Electrodomestico(double precio_base, int peso){
         this(precio_base, peso, CONENE_DEF, COLOR_DEF);
         
     }
     
     //Constructor con todos los parámetros
-    public Electrodomestico (int precio_base, int peso, char consumo_energetico, String color){
+    public Electrodomestico (double precio_base, int peso, char consumo_energetico, String color){
         this.precio_base=precio_base;
         this.color=color;
         this.consumo_energetico=consumo_energetico;
@@ -31,7 +32,7 @@ public class Electrodomestico {
     }
     
     //GETTERS
-    public int getPrecio_base() {
+    public double getPrecio_base() {
         return precio_base;
     }
     public int getPeso() {
@@ -45,7 +46,7 @@ public class Electrodomestico {
     }
     
     //SETTERS
-    public void setPrecio_base(int precio_base) {
+    public void setPrecio_base(double precio_base) {
         this.precio_base = precio_base;
     }
       public void setPeso(int peso) {
@@ -58,9 +59,9 @@ public class Electrodomestico {
         this.consumo_energetico = consumo_energetico;
     } 
     
-    public int precioFinal(){
+    public double precioFinal(){
         
-        int precio_final, precioEne;
+        double precio_final, precioEne;
         
         switch (consumo_energetico){
             case 'A':
